@@ -7,6 +7,8 @@ import WhatsNew from 'comp/WhatsNew';
 import HowItWorks from 'comp/Howitworks';
 import Seo from 'comp/Seo';
 import ContactForm from 'comp/ContactForm';
+import Link from 'next/link';
+
 
 const servicesData = [
   { title: "Brand Strategy Consultation", description: "Tailored sessions to define your brand’s message and identity..." },
@@ -61,9 +63,13 @@ export default function RetrieveBanks() {
       <Header/>
       <PromoSection/>
       <HowItWorks/>
-      <WhatsNew />
+      {/* <WhatsNew /> */}
       <Faq faq={faqs}/>
-      <ContactForm/>
+      <ul>
+          <li><Link href="/calculators/florida">Florida Tax Calculator</Link></li>
+          <li><Link href="/calculators/texas">Texas Tax Calculator</Link></li>
+        </ul>
+      {/* <ContactForm/> */}
       <Footer/>
     </>
   

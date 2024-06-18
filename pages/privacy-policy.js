@@ -3,7 +3,7 @@ import Head from 'next/head';
 const PrivacyPolicy = () => (
   <div>
     <Head>
-      <title>Privacy Policy - The Goat Notebook</title>
+      <title>Privacy Policy - 29Hrefs</title>
       <meta name="description" content="Privacy Policy for The Goat Notebook" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
@@ -11,7 +11,7 @@ const PrivacyPolicy = () => (
     <main>
       <h1>Privacy Policy</h1>
 
-      <p>Last updated: June 10, 2023</p>
+      <p>Last updated: June 18, 2024</p>
 
       <p>
         This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
