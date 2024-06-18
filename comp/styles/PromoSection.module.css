@@ -1,0 +1,98 @@
+.promoSection {
+  font-size: 80%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+  text-align: center;
+  }
+  
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+
+  .highlight  {
+    display: inline-block; /* Make span behave like a block to enable transformation */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the rotation */
+    background-color: var(--shade);
+    color: var(--bkg);
+    padding: 0 10px;
+    transform: rotate(-4deg);
+    margin-top:0.23em
+  }
+
+  .strikeThroughRed {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .strikeThroughRed::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px; /* Adjust the height of the line */
+    background-color: red; /* Color of the line */
+    top: 50%; /* Position the line in the middle of the text */
+    transform: translateY(-50%);
+  }
+  
+  .description {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    padding:1.5em;
+    
+  }
+  
+  .ctaButton {
+    background-color: var(--primary);
+    /* color: #fff; */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 700;
+
+
+  }
+  
+  .ctaButton a{
+    width:100%;
+    height: 100%;
+    text-decoration: none;
+    color:var(--bkg);
+
+  }
+
+.rating{
+    color:var(--primary);
+}
+
+.discount{
+    line-height: 1.625;
+    font-size: 1.1em;
+}
+
+@media screen and (max-width: 800px){
+  .promoSection {
+    padding:1em;
+    font-size: 80%;
+    width:100%;
+  }
+
+  .content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .highlight   {
+font-size: 80%;
+  }
+
+  
+}
