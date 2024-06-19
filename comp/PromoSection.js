@@ -12,7 +12,7 @@ const PromoSection = () => {
           Why get a website
           Our boilerplate is for <strong>$79USD</strong> for a boilerplate Website.    
         </p>
-        <ImagePopup src="./themes.png" alt="themes" />
+      {/*  <ImagePopup src="./themes.png" alt="themes" /> */}
 
         <button className={styles.ctaButton}><a href='https://7617327545561.gumroad.com/l/yrccb' >Buy Template</a></button>
 
