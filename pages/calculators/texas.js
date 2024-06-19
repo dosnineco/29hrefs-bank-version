@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Formik, Form, Field  } from 'formik';
 import styles from './../../comp/styles/Calculator.module.css';
-
+                                                                                                                                                                                                                                                
 const FloridaCalculator = () => {
   const [result, setResult] = useState(null);
 
@@ -99,4 +99,12 @@ const FloridaCalculator = () => {
   );
 };
 
-export default FloridaCalculator;
+const Texas = () => {
+  return(
+    <div>
+      </FloridaCalculator>
+    </div>
+  )
+};
+
+export default Texas;
