@@ -1,101 +1,48 @@
-
-import { useState } from 'react';
-import { Formik, Form, Field  } from 'formik';
-import styles from './../../comp/styles/Calculator.module.css';
+import Calculator from "comp/Calulator";
 
 const FloridaCalculator = () => {
-  const [result, setResult] = useState(null);
-
-  const calculateTax = (values) => {
-    const federalTaxRate = 0.1; 
-    const grossPay = values.payRate * values.hoursWorked;
-    const federalTax = grossPay * federalTaxRate;
-    const netPay = grossPay - federalTax;
-
-    setResult({
-      grossPay,
-      federalTax,
-      netPay,
-    });
-  };
 
   return (
-    <div className={styles.formContainer }>
-      <Formik
-        initialValues={{
-          firstName: '',
-          lastName: '',
-          payRate: 0,
-          hoursWorked: 0,
-          payDate: '',
-          paySchedule: 'Weekly',
-          bonus: 0,
-          commission: 0,
-          filingStatus: 'Single',
-          allowances: 0,
-          additionalWithholding: 0,
-        }}
-        onSubmit={calculateTax}
-      >
-        {({ values }) => (
-          <Form className={styles.formContainer }>
-            <label className={styles.label} htmlFor="firstName">First Name</label>
-            <Field  className={styles.input}  id="firstName" name="firstName" type="text" />
+   <div className="page">
 
-            <label className={styles.label}  htmlFor="lastName">Last Name</label>
-            <Field className={styles.input} id="lastName" name="lastName" type="text" />
+   <h1>Texas Income Tax Information</h1>
+   <Calculator tax={0.00}/>
 
-            <label className={styles.label}   htmlFor="payRate">Pay Rate ($)</label>
-            <Field className={styles.input} id="payRate" name="payRate" type="number" step="0.01" />
+    <p>Texas does not have a state income tax, which simplifies the tax situation for residents. This absence of state income tax is one of the significant financial benefits for individuals living and working in Texas. However, Texans still need to pay federal income taxes and might encounter other state and local taxes, such as sales tax and property tax.</p>
 
-            <label  className={styles.label}  htmlFor="hoursWorked">Hours Worked</label>
-            <Field className={styles.input} id="hoursWorked" name="hoursWorked" type="number" />
+    <h2>Key Points about Taxes in Texas</h2>
+    <ul>
+        <li><strong>No State Income Tax:</strong> Texas is one of the few states in the U.S. that does not levy a state income tax on individuals. This means that residents do not have to file a state income tax return or pay state income taxes on wages, salaries, or other personal income.</li>
+        <li><strong>Federal Income Tax:</strong> Texans are still required to pay federal income taxes. This is handled through the IRS, and individuals must file their federal tax returns annually by the April 15 deadline (or the next business day if it falls on a weekend or holiday).</li>
+        <li><strong>Sales Tax:</strong> Texas has a state sales tax rate of 6.25%. Local jurisdictions (cities, counties, special purpose districts, and transit authorities) can impose additional sales taxes, which can bring the total sales tax rate up to 8.25% in some areas.</li>
+        <li><strong>Property Tax:</strong> Texas relies heavily on property taxes to fund local government and public services, including schools. Property tax rates vary by county and city. Homeowners must pay property taxes based on the assessed value of their property.</li>
+        <li><strong>Other Taxes:</strong> In addition to sales and property taxes, there may be other local taxes and fees, such as franchise taxes for businesses.</li>
+    </ul>
 
-            <label  className={styles.label}  htmlFor="payDate">Pay Date</label>
-            <Field className={styles.input} id="payDate" name="payDate" type="date" />
+    <h2>Federal Income Tax Calculators</h2>
+    <p>Since there is no state income tax in Texas, a typical "income tax calculator" for state taxes is not applicable. However, Texans can use various federal income tax calculators to estimate their federal tax liability. These calculators typically require inputs such as:</p>
+    <ul>
+        <li>Filing status (e.g., single, married filing jointly, head of household)</li>
+        <li>Annual income</li>
+        <li>Number of dependents</li>
+        <li>Deductions and credits (e.g., standard deduction, itemized deductions, child tax credit)</li>
+    </ul>
 
-            <label  className={styles.label}  htmlFor="paySchedule">Pay Schedule</label>
-            <Field className={styles.input} id="paySchedule" name="paySchedule" as="select">
-              <option value="Weekly">Weekly</option>
-              <option value="Biweekly">Biweekly</option>
-              <option value="Monthly">Monthly</option>
-            </Field>
+    <h2>Popular Federal Income Tax Calculators</h2>
+    <ul>
+        <li><a href="https://www.irs.gov/individuals/tax-withholding-estimator" class="calculator-link" target="_blank">IRS Tax Withholding Estimator</a>: Offered by the IRS to help taxpayers check their withholding and make sure they are not having too much or too little federal income tax withheld from their pay.</li>
+        <li><a href="https://turbotax.intuit.com/tax-tools/calculators/taxcaster/" class="calculator-link" target="_blank">TurboTax TaxCaster</a>: A free tax calculator from TurboTax that estimates your federal tax refund or amount owed.</li>
+        <li><a href="https://www.hrblock.com/tax-calculator/" class="calculator-link" target="_blank">H&R Block Tax Calculator</a>: A tool from H&R Block that provides a similar function to estimate federal tax liabilities.</li>
+    </ul>
 
-            <label className={styles.label}   htmlFor="bonus">Bonus ($)</label>
-            <Field className={styles.input} id="bonus" name="bonus" type="number" step="0.01" />
-
-            <label className={styles.label}   htmlFor="commission">Commission ($)</label>
-            <Field className={styles.input} id="commission" name="commission" type="number" step="0.01" />
-
-            <label className={styles.label}   htmlFor="filingStatus">Filing Status</label>
-            <Field className={styles.input} id="filingStatus" name="filingStatus" as="select">
-              <option value="Single">Single</option>
-              <option value="Married">Married</option>
-            </Field> 
-
-            <label  className={styles.label}  htmlFor="allowances">Allowances</label>
-            <Field className={styles.input} id="allowances" name="allowances" type="number" />
-
-            <label  className={styles.label}  htmlFor="additionalWithholding">Additional Withholding ($)</label>
-            <Field className={styles.input} id="additionalWithholding" name="additionalWithholding" type="number" step="0.01" />
-
-            <button  className={styles.button}   type="submit">Calculate</button>
-          </Form>
-        )}
-      </Formik>
-
-      {result && (
-        <div className={styles.successMessag}>
-          <h2 className={styles.h2} >Results</h2>
-          <ul>
-            <li> <strong>Gross Pay:</strong> ${result.grossPay.toFixed(2)}</li>
-            <li><strong>Federal Tax:</strong> ${result.federalTax.toFixed(2)}</li>
-            <li><strong>Net Pay:</strong> ${result.netPay.toFixed(2)}</li>
-          </ul>
-
-        </div>
-      )}
-    </div>
+    <h2>How to Use a Federal Income Tax Calculator</h2>
+    <ul>
+        <li><strong>Input Personal Information:</strong> Provide your filing status, age, and other basic information.</li>
+        <li><strong>Enter Income Details:</strong> Include wages, salaries, interest, dividends, and other sources of income.</li>
+        <li><strong>Adjust Deductions and Credits:</strong> Input any deductions (standard or itemized) and tax credits you qualify for.</li>
+        <li><strong>Review the Results:</strong> The calculator will estimate your federal tax liability or refund.</li>
+    </ul>
+   </div>
   );
 };
 
